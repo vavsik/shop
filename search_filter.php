@@ -1,0 +1,266 @@
+﻿<?php error_reporting(0);;
+   include("include/db_connect.php"); 
+   include("functions/functions.php");
+   
+   $cat = clear_string($_GET["cat"]);
+   $type = clear_string($_GET["type"]);
+
+    
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Поиск по параметрам</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="trackbar/trackbar.css">
+    
+	
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/shop-script.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
+    <script type="text/javascript" src="trackbar/jquery.trackbar.js"></script>
+    
+    
+</head>
+<body>
+
+<div id="block-body">
+<?php	
+    include("include/block-header.php");    
+?>
+<div id="block-right">
+<?php	
+    include("include/block-category.php");  
+    include("include/block-parameter.php");   
+?>
+</div>
+<div id="block-content">
+
+
+
+<?php
+	
+ 
+  if ($_GET["brand"])
+  {
+      $check_brand = implode(',',$_GET["brand"]);
+  } 
+  
+  $start_price = (int)$_GET["start_price"];
+  $end_price = (int)$_GET["end_price"];
+
+
+  if (!empty($check_brand) OR !empty($end_price))
+  {
+    
+    if (!empty($check_brand)) $query_brand = " AND kind_id IN($checked_brand)";
+    if (!empty($end_price)) $query_price = " AND price BETWEEN $start_price AND $end_price";
+    
+    
+  }
+
+    
+    
+  $result = mysql_query("SELECT * FROM table_products WHERE visible='1' $query_brand $query_price ORDER BY products_id DESC",$link);  
+
+if (mysql_num_rows($result) > 0)
+{
+ $row = mysql_fetch_array($result); 
+ 
+ 
+ 
+ echo '
+ <div id="block-sorting">
+<p id="nav-breadcrumbs"><a href="index.php">Главная страница</a> \ <span>Все товары</span></p>
+<ul id="option-list">
+<li>Вид</li>
+<li><img id="style-grid" src="images/icon-grid.png" /></li>
+<li><img id="style-list" src="images/icon-list.png" /></li>
+<li>Сортировать:</li>
+<li><a id="select-sort">'.$sort_name.'</a>
+<ul id="sorting-list">
+<li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=price-asc" >От дешевых к дорогим</a></li>
+<li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=price-desc" >От дорогих к дешевым</a></li>
+<li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=popular" >Популярное</a></li>
+<li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=news" >Новинки</a></li>
+<li><a href="view_cat.php?'.$catlink.'type='.$type.'&sort=brand" >От А до Я</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+ <ul id="block-tovar-grid" >
+ 
+ ';
+ 
+ 
+ do
+ {
+
+if  ($row["image"] != "" && file_exists("./upload_images/".$row["image"]))
+{
+$img_path = './upload_images/'.$row["image"];
+$max_width = 200; 
+$max_height = 200; 
+ list($width, $height) = getimagesize($img_path); 
+$ratioh = $max_height/$height; 
+$ratiow = $max_width/$width; 
+$ratio = min($ratioh, $ratiow); 
+$width = intval($ratio*$width); 
+$height = intval($ratio*$height);    
+}else
+{
+$img_path = "/images/no-image.png";
+$width = 110;
+$height = 200;
+} 
+  
+  echo '
+  
+  <li>
+  <div class="block-images-grid" >
+  <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
+  </div>
+  <p class="style-title-grid" ><a href="" >'.$row["title"].'</a></p>
+  <ul class="reviews-and-counts-grid">
+  <li><img src="images/eye-icon.png" /><p>0</p></li>
+  <li><img src="images/comment-icon.png" /><p>0</p></li>
+  </ul>
+  <a class="add-cart-style-grid" ></a>
+  <p class="style-price-grid" ><strong>'.$row["price"].'</strong> грн.</p>
+  <div class="mini-features" >
+  '.$row["mni_features"].'
+  </div>
+  </li>
+  
+  ';
+  
+    
+ }
+    while ($row = mysql_fetch_array($result));
+    
+
+
+?>
+</ul>
+
+
+<ul id="block-tovar-list" >
+
+<?php
+	
+  $result = mysql_query("SELECT * FROM table_products WHERE visible='1' $query_brand $query_price ORDER BY products_id DESC",$link);  
+
+if (mysql_num_rows($result) > 0)
+{
+ $row = mysql_fetch_array($result); 
+ 
+ do
+ {
+
+if  ($row["image"] != "" && file_exists("./upload_images/".$row["image"]))
+{
+$img_path = './upload_images/'.$row["image"];
+$max_width = 150; 
+$max_height = 150; 
+ list($width, $height) = getimagesize($img_path); 
+$ratioh = $max_height/$height; 
+$ratiow = $max_width/$width; 
+$ratio = min($ratioh, $ratiow); 
+$width = intval($ratio*$width); 
+$height = intval($ratio*$height);    
+}else
+{
+$img_path = "/images/noimages80x70.png";
+$width = 80;
+$height = 70;
+} 
+  
+  echo '
+  
+  <li>
+  <div class="block-images-list" >
+  <img src="'.$img_path.'" width="'.$width.'" height="'.$height.'" />
+  </div>
+
+  <ul class="reviews-and-counts-list">
+  <li><img src="images/eye-icon.png" /><p>0</p></li>
+  <li><img src="images/comment-icon.png" /><p>0</p></li>
+  </ul>
+  
+  <p class="style-title-list" ><a href="" >'.$row["title"].'</a></p>
+  
+  <a class="add-cart-style-list" ></a>
+  <p class="style-price-list" ><strong>'.$row["price"].'</strong> грн.</p>
+  <div class="style-text-list" >
+  '.$row["mini_description"].'
+  </div>
+  </li>
+  
+  ';
+  
+    
+ }
+    while ($row = mysql_fetch_array($result));
+}
+}else
+{
+    echo '<h3>Категория не доступна или не создана!</3>';
+}    
+
+echo '</ul>';
+
+if ($page != 1){ $pstr_prev = '<li><a class="pstr-prev" href="view_cat.php?page='.($page - 1).'">&lt;</a></li>';}
+if ($page != $total) $pstr_next = '<li><a class="pstr-next" href="view_cat.php?page='.($page + 1).'">&gt;</a></li>';
+
+
+// Формируем ссылки со страницами
+if($page - 5 > 0) $page5left = '<li><a href="view_cat.php?page='.($page - 5).'">'.($page - 5).'</a></li>';
+if($page - 4 > 0) $page4left = '<li><a href="view_cat.php?page='.($page - 4).'">'.($page - 4).'</a></li>';
+if($page - 3 > 0) $page3left = '<li><a href="view_cat.php?page='.($page - 3).'">'.($page - 3).'</a></li>';
+if($page - 2 > 0) $page2left = '<li><a href="view_cat.php?page='.($page - 2).'">'.($page - 2).'</a></li>';
+if($page - 1 > 0) $page1left = '<li><a href="view_cat.php?page='.($page - 1).'">'.($page - 1).'</a></li>';
+
+if($page + 5 <= $total) $page5right = '<li><a href="view_cat.php?page='.($page + 5).'">'.($page + 5).'</a></li>';
+if($page + 4 <= $total) $page4right = '<li><a href="view_cat.php?page='.($page + 4).'">'.($page + 4).'</a></li>';
+if($page + 3 <= $total) $page3right = '<li><a href="view_cat.php?page='.($page + 3).'">'.($page + 3).'</a></li>';
+if($page + 2 <= $total) $page2right = '<li><a href="view_cat.php?page='.($page + 2).'">'.($page + 2).'</a></li>';
+if($page + 1 <= $total) $page1right = '<li><a href="view_cat.php?page='.($page + 1).'">'.($page + 1).'</a></li>';
+
+
+if ($page+5 < $total)
+{
+    $strtotal = '<li><p class="nav-point">...</p></li><li><a href="view_cat.php?page='.$total.'">'.$total.'</a></li>';
+}else
+{
+    $strtotal = ""; 
+}
+
+if ($total > 1)
+{
+    echo '
+    <div class="pstrnav">
+    <ul>
+    ';
+    echo $pstr_prev.$page5left.$page4left.$page3left.$page2left.$page1left."<li><a class='pstr-active' href='view_cat.php?page=".$page."'>".$page."</a></li>".$page1right.$page2right.$page3right.$page4right.$page5right.$strtotal.$pstr_next;
+    echo '
+    </ul>
+    </div>
+    ';
+}
+?>
+
+
+
+</div>
+
+<?php	
+    include("include/block-footer.php");    
+?>
+</div>
+
+</body>
+</html>
