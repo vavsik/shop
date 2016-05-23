@@ -3,17 +3,16 @@
 
 #block-body
 {
-	width:100%; 
+	width:100%;
 	height: auto;
-	margin: auto;
-	min-width:770px;
+	margin: 0 auto;
+	min-width: 475px;
 		/*background: #C6C6C6; /* Цвет фона */    /*color: #fc0; Цвет текста */
  }
  #block-header
  {
  width:100%;
  height:auto;
- min-width:770px;
 }
 #block-right
 {
@@ -31,32 +30,21 @@
  }  	
 
 #header-top
-{top:0;
-background: #6383A8;	
+{ top:0px;
+background:#D16252;	
  width:100%;
- height:44px;
+min-width: 600px;
+ height:40px;
  position:fixed;
 }
-#header-top-up
-{
-width:60%;
-height:44px;
-min-width:770px;
-margin:auto;
-z-index:999;
-}
-
-
-
-#number-top{
-display: inline-block;
-font: bold 20px;
+#header-top p#ppp{
+font:21px;
 font-family:Tahoma, Verdana, Segoe, sans-serif;
 color:#FFFFFF;
     display: inline-block;
-	margin-top:-3px;
-	float:left;
-	margin-left:150px;
+	margin-top:11px;
+	float:right;
+	margin-right:150px;
 }
 #block-footer
 {
@@ -69,47 +57,65 @@ color:#FFFFFF;
 #header-top-menu li
 {display: inline-block;
 list-style-type:none;
-font:12px;
+font:15px;
 font-family:Tahoma, Verdana, Segoe, sans-serif;
 float:left;
+margin-top:11px;
 padding-left:5px;
 padding-right:5px;
 color:#FFFFFF;
 }
 
 #header-top-menu a
-{font:12px Tahoma, Verdana, Segoe, sans-serif;
+{font:14px Tahoma, Verdana, Segoe, sans-serif;
 color: #FFFFFF;
 text-decoration:none;
 display: inline-block;
 }
 #header-top-menu a:hover
 {color: #BDBDBD;
+}
 
+#header-top-menu span
+{font:14px Tahoma, Verdana, Segoe, sans-serif;
+color: #FF9CF8;
 }
 #reg-auth-title{
+	margin-top:13px;
+	margin-left:0;
+	margin-right:10px;
 	float:right;
 	display:inline-block;
-	margin:0;
 }
-
-.top-auth{
-	font: 12px Tahoma, Verdana, Segoe, sans-serif;
-	color: #FFFFFF;
+#reg-auth-title a.top-auth{
+	font: 15px Tahoma, Verdana, Segoe, sans-serif;
+	text-decoration:none;
+	background:url(../images/auth-butt-bg.png);
+	padding-bottom:4px;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	/*border:1px solid #B4B4B4;*/
+	border-radius:5px;
 	cursor:pointer;
 	color: #000000;
-	text-decoration: underline;
 	
+}
+
+#reg-auth-title a.top-auth:hover{
+	
+	background:url(../images/auth-butt-bg-move.png);
 }
 	
 #reg-auth-title a{
-	font:12px Tahoma, Verdana, Segoe, sans-serif;
+	font:15px Tahoma, Verdana, Segoe, sans-serif;
 	color: #FFFFFF;
 	margin-left:10px;
+	text-decoration:none;
 }
 	#reg-auth-title a:hover
 	{color: #BDBDBD;
-	text-decoration:none;
+	border-bottom:none;
 	}
 	#top-line
 	{
@@ -118,15 +124,8 @@ display: inline-block;
 		height:5px;
 		margin-top:0px;
 	}
-	
-	.buttond
-	{
-		display:inline-block;
-		margin-left:60px;
-	}
-#img-logo
-{position:absolute; 
-width: 140px;
+#personal-info #img-logo
+{ width: 150px;
     height: 110px;
     margin-top:0px;
     float: left;
@@ -135,7 +134,7 @@ width: 140px;
 #personal-info
 {width:100%;
 margin-left:0px;
-margin-top:60px;
+margin-top:27px;
 
 }
 #personal-info p
@@ -189,7 +188,7 @@ margin-top:-50px;
 { 
 	width:58px;
 	height:41px;
-	border:1px solid #6383A8;	
+	border:1px solid #C11FCB;	
 	background: url(../images/grd-button-search-norm.png);
     margin-left:-5px;
 	cursor: pointer;
@@ -211,8 +210,8 @@ display: inline-block;
 	margin-top:7px;
 }
 #top-menu a{
-	font: 12px sans-serif;
-	color:#6383A8;
+	font: 14px sans-serif;
+	color:#79287a;
 	margin-left:3px;
 	margin-right:15px;
 	text-decoration:none;
@@ -230,27 +229,28 @@ display: inline-block;
 	height:33px;
 }
 #block-basket{
-  margin-top:-9px;
+  margin-top:0px;
   float:right;
-      margin-right: 151px;
   display:inline-block;
  
   }
 #block-basket a
 	{
-	font:12px Tahoma, Verdana, Segoe, sans-serif;
-	text-decoration: underline;
+	font:14px Tahoma, Verdana, Segoe, sans-serif;
+	margin-top:-5px;
+	text-decoration:none;
+	border-bottom:1px solid #FFFFFF;
 	color: #FFFFFF;
 	
 	}
 #block-basket a:hover
 	{
-		color: #BDBDBD;
-	    text-decoration:none;	
+		border-botton:none;
 	}
 #block-basket img{
-  	width:25px;
-  	height:20px;
+	margin-top:2px;
+  	width:30px;
+  	height:30px;
 }
 
 #block-category
@@ -500,7 +500,7 @@ margin-left: 10px;
 }
 .style-title-grid a{
 	font:bold 15px sans-serif;
-	color:#6383A8;
+	color:#1B01FD;
 	text-decoration:underline;
 	
 }
@@ -530,8 +530,7 @@ margin-left: 10px;
 }
 
 .reviews-and-counts-grid > li > img {
- position:absolute;
- z-index:-10; 
+ position:absolute; 
 }
 .style-price-grid{
 	font:15px sans-serif;
@@ -594,7 +593,6 @@ margin-left: 10px;
 }
 .reviews-and-counts-list > li > img{
 	position:absolute;
-	z-index:1;
 }
 .style-title-list{
 	margin-top: 0;
@@ -814,182 +812,4 @@ margin-left: 10px;
 	font: bold 14 px sans-serif;
 	color:#FF0004;
 }
-#block-top-auth{
-    border: 1px solid #DBDBDB;
-    width: 210px;
-    height: auto;
-    margin-left: 532px;
-    margin-top:44px;
-    background-color: white;
-    position: absolute;
-    z-index: 9999;
-    -moz-box-shadow: 0 0 15px #DBDBDB;
-    -webkit-box-shadow: 0 0 15px #DBDBDB;
-    box-shadow: 0 0 15px #DBDBDB;
-	display:none;
 	
-}
-.corner{
-    background: url(../images/bulleticon.png);
-    width: 19px;
-    height: 10px;
-    margin-left: 175px;
-    margin-top: -9px;
-}
-#input-email-pass h3{
-    font: 15px Tahoma, Verdana, Segoe, sans-serif;
-    margin: 10px;
-}
-#message-auth{
-    font: bold 13px sans-serif;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #FDE7E7;
-    color: red;
-	display:none;
-}
-#input-email-pass > li{
-    margin-top: 7px;
-}
-#input-email-pass input#auth_login{
-    width: 180px;
-    height: 25px;
-    font: 15px sans-serif;
-    border: 1px solid #DBDBDB;
-    padding-left: 5px;
-}
-#input-email-pass input#auth_pass{
-    width: 180px;
-    height: 25px;
-    font: 15px sans-serif;
-    border: 1px solid #DBDBDB;
-    padding-left: 5px;
-}
-.pass-show{
-   background: url(../images/open_eye.png) no-repeat;
-   width: 18px;
-   height: 11px; 
-}
-.pass-hide{
-   background: url(../images/eye_closed.png) no-repeat;
-   width: 20px;
-   height: 10px; 
-}
-#input-email-pass span{
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    margin-top: 10px;
-    position: absolute;
-    margin-left: -28px;
-}
-#list-auth{
-    margin-top: 12px;
-}
-#list-auth li{
-    margin-top: 5px;
-    margin-left: 10px;
-    font: 14px sans-serif;
-}
-#list-auth a{
-    color: black;
-    text-decoration: none;
-    margin-left: 3px;
-    border-bottom: 1px dashed black;
-}
-#list-auth a:hover{
-    border-bottom: none;
-}
-#button-auth a,#button-remind a{
-    margin-right: 10px;
-    cursor: pointer;
-    background: url(../images/button-grd.png) repeat-x;
-    font:bold 13px sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid #E8E8E8;
-    border-radius:5px ; 
-   -webkit-border-radius:5px ; 
-   -moz-border-radius:5px ;  
-}
-
-#button-auth a:hover,#button-remind a:hover{
-    background: url(../images/button-grd-hover.png) repeat-x;
-}
-#button-auth a:active,#button-remind a:active{
-    background: url(../images/button-grd-active.png) repeat-x;
-}
-#button-auth a,#button-remind a{
-    margin-right: 10px;
-    cursor: pointer;
-    background: url(../images/button-grd.png) repeat-x;
-    font:bold 13px sans-serif;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid #E8E8E8;
-    border-radius:5px ; 
-   -webkit-border-radius:5px ; 
-   -moz-border-radius:5px ;  
-}
-
-#button-auth a:hover,#button-remind a:hover{
-    background: url(../images/button-grd-hover.png) repeat-x;
-}
-#button-auth a:active,#button-remind a:active{
-    background: url(../images/button-grd-active.png) repeat-x;
-}
-.auth-loading{
-    margin-right: 30px;
-    margin-top: 20px;
-    display: none;
-}
-#auth-user-info{
-    font: bold 12px sans-serif;
-	margin:0;
-    float: right;
-	color:#FFFFFF;
-}
-#auth-user-info:hover{
-    color: #91DEFF;
-    border-bottom: 1px dashed #91DEFF;
-    cursor: pointer;
-}
-#auth-user-info > img{
-    position: absolute;
-    margin-left: -26px;
-    margin-top: -11px;
-    height: 30px;
-}
-#block-remind{
-    display: none;
-}
-#block-remind  h3{
-    font:15px sans-serif;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#block-remind  input{
-    width: 150px;
-    height: 25px;
-    border: 1px solid #DBDBDB;
-    font:15px sans-serif; 
-    padding-left: 5px;
-    padding-right: 30px;
-}
-
-#block-remind  p#prev-auth{
-    font:bold 13px sans-serif;
-    text-decoration: underline;
-    width: 10px; 
-    margin-left: 10px;
-    margin-top: -32px;
-    cursor: pointer;
-    position: absolute;  
-}
-#block-remind  p#prev-auth:hover{
-    text-decoration: none;

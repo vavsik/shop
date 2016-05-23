@@ -1,10 +1,12 @@
-<?php	 error_reporting(0);
+﻿<?php error_reporting(0);
    define('myeshop', true);
-   include("include/db_connect.php");
+   include("include/db_connect.php"); 
    include("functions/functions.php");
-   session_start();
-   include("include/auth_cookie.php");
-$sorting = $_GET["sort"];
+   
+   $cat = clear_string($_GET["cat"]);
+   $type = clear_string($_GET["type"]);
+   
+   $sorting = $_GET["sort"];   
  
 switch ($sorting)
 {

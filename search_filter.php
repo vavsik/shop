@@ -1,9 +1,7 @@
-﻿<?php error_reporting(0);
-define('myeshop', true);
+﻿<?php error_reporting(0);;
    include("include/db_connect.php"); 
    include("functions/functions.php");
-      session_start();
-	   include("include/auth_cookie.php");
+   
    $cat = clear_string($_GET["cat"]);
    $type = clear_string($_GET["type"]);
 

@@ -17,7 +17,8 @@ $(document).ready(function() {
     }else
     {
         echo "1000";
-    } 
+    }
+    
 ?>,
 	rightLimit : 50000,
 	rightValue : <?php

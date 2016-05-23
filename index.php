@@ -1,9 +1,5 @@
-﻿<?php  error_reporting(0);
-define('myeshop', true);
+﻿<?php error_reporting(0);
  include ("include/db_connect.php");
- include("functions/functions.php");
- session_start();
-  include("include/auth_cookie.php");
 $sorting = $_GET["sort"];
 
 switch ($sorting)
@@ -193,7 +189,7 @@ $width = intval($ratio*$width);
 $height = intval($ratio*$height);
 }else
 {
-$img_path = "images/noimages80x70.png";
+$img_path = "/images/noimages80x70.png";
 $width = 80;
 $height = 70;
 } 
