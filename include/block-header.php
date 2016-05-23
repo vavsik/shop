@@ -1,20 +1,74 @@
-﻿<div id="block-header">
 <div id="header-top">
+ <div id="header-top-up">
+ <!--<img id="img-logo" src="images/logo.png"/>-->
 <ul id="header-top-menu">
-    <li>Ваш город - <span>Киев</span></li>
     <li><a href="about.php">О нас</a></li>
     <li><a href="help.php">Помощь</a></li>
     <li><a href="Contacts.php">Контакты</a></li>
 </ul>
-<p id="reg-auth-title" align="right">
-<a class="top-auth">Вход</a><a href="registration.php">Регистрация</a>
-</p>
-<p align="right" id="block-basket"><img src="images/cart-icon.png"/><a href="">Корзина Пуста</a></p>
-<p id="ppp" align="center">(096)000-70-01</p>
+<?php
+
+if ($_SESSION['auth'] == 'yes_auth')
+{
+ 
+ echo '<p id="auth-user-info" align="right"><img src="images/user.png" />Здравствуйте, '.$_SESSION['auth_name'].'!</p>';   
+    
+}else{
+ 
+  echo '<p id="reg-auth-title" align="right"><a class="top-auth">Вход</a><a href="registration.php">Регистрация</a></p>';   
+    
+}
+	
+?>
+<div id="block-top-auth">
+
+<div class="corner"></div>
+
+<form method="post">
+
+
+<ul id="input-email-pass">
+
+<h3>Вход</h3>
+
+<p id="message-auth">Неверный Логин и(или) Пароль</p>
+
+<li><center><input type="text" id="auth_login" placeholder="Логин или E-mail" /></center></li>
+<li><center><input type="password" id="auth_pass" placeholder="Пароль" /><span id="button-pass-show-hide" class="pass-show"></span></center></li>
+
+<ul id="list-auth">
+<li><input type="checkbox" name="rememberme" id="rememberme" /><label for="rememberme">Запомнить меня</label></li>
+<li><a id="remindpass" href="#">Забыли пароль?</a></li>
+</ul>
+
+
+<p align="right" id="button-auth"><a>Вход</a></p>
+
+<p align="right" class="auth-loading"><img src="images/loading.gif" /></p>
+
+</ul>
+</form>
+
+
+<div id="block-remind">
+<h3>Восстановление<br /> пароля</h3>
+<p id="message-remind" class="message-remind-success" ></p>
+<center><input type="text" id="remind-email" placeholder="Ваш E-mail" /></center>
+<p align="right" id="button-remind" ><a>Готово</a></p>
+<p align="right" class="auth-loading" ><img src="images/loading.gif" /></p>
+<p id="prev-auth">Назад</p>
+</div>
 </div>
 
+</p>
+<p class="buttond"  style="text-align:right;"><a href="#" target="_blank" style="cursor: pointer; text-decoration: none; padding:12px 29px; color:#ffffff; background-color:#76e615; border-radius:24px; border: 1px solid #ffffff;">Заказ товара</a></p>
+<p class="buttond"  style="text-align:center;"><a href="#" target="_self" style="cursor: pointer; text-decoration: none; padding:12px 36px; color:#ffffff; background-color:#F70202; border-radius:46px; border: 0px solid #1a1ad9;">+38(096)000-70-01</a></p>
+</div>
+</div>
+
+<div id="block-header">
+
 <div id="personal-info">
-     <img id="img-logo" src="images/logo.png"/>
     <p align="right">Звонок:</p>
     <h3 align="right">(096)000-70-01</h3>
     <img src="images/phone-icon.png"/>
@@ -27,8 +81,7 @@
 
 <form method="get" action="search.php?q=">
     <div id="block-search">
-        <span></span>
-        <input type="text" id="input-search" name="q" placeholder="Что-то ищете?" />
+<input type="text" id="input-search" name="q" placeholder="Что-то ищете?" />
         <input type="submit" id="button-search" value="Поиск" />
     </div>
 </form>
@@ -40,9 +93,6 @@
 <li><img src="images/new-32.png"><a href="">Новые товары</a></li>
 <li><img src="images/sale-32.png"><a href="">Распродажа</a></li>
  </ul>
-
-
-<div id="nav-line"></div>
 </div>
 </div>
 

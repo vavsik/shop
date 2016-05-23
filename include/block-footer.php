@@ -1,13 +1,12 @@
 ﻿<div id="block-footer">
-<div id="bottom-line"></div>
 <div id="footer-phone">
-
-<h4>Служба поддержки</h4>
+  
+  <h4>Служба поддержки</h4>
 <h3>0(96)000-70-01</h3>
 <p>Прием заказов:<br>
    Все дни!<br>
    C 8:00 до 23:00</p>
-   </div>
+ </div>
  
  <div class="footer-list">
  <p>Сервис и помощь</p>

@@ -1,13 +1,12 @@
-﻿<?php
+<?php error_reporting(0);
    define('myeshop', true);
    include("include/db_connect.php"); 
    include("functions/functions.php");
    session_start();
-   
+    include("include/auth_cookie.php");
 ?>
 <!doctype html>
-<html>
-<head>
+<html><head>
 <meta charset="utf-8">
 
     <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -15,14 +14,14 @@
     <link rel="stylesheet" type="text/css" href="trackbar/trackbar.css">
     
 	
-	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="js/shop-script.js"></script>
-	<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
-    <script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
-    <script type="text/javascript" src="trackbar/jquery.trackbar.js"></script>
-	<script type="text/javascript" src="js/jquery.form.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.js"></script>  
-    <script type="text/javascript" src="js/TextChange.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/shop-script.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
+<script type="text/javascript" src="trackbar/jquery.trackbar.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>  
+<script type="text/javascript" src="js/TextChange.js"></script>
 	
     
 <script type="text/javascript">
@@ -158,9 +157,8 @@ $(document).ready(function() {
 <div id="block-content">
 <h1 class="h1-title">Регистрация</h1>
 <form method="post" id="form_reg" action="reg/handler_reg.php">
-<p id="reg_message"></p>
 <div id="block-form-registration">
-<ul id="form-registration">
+  <ul id="form-registration">
 
 <li>
 <label>Логин</label>

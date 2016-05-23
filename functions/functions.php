@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 function clear_string($cl_str)
 {
