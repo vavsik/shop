@@ -4,7 +4,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 define('myeshop', true);    
 include("db_connect.php");
 include("../functions/functions.php");
-
 $email = clear_string($_POST["email"]);
 
 if ($email != "")
@@ -28,7 +27,7 @@ $update = mysql_query ("UPDATE reg_user SET pass='$pass' WHERE email='$email'",$
     
 // Отправка нового пароля.
    
-	         send_mail( 'vvavsik@gmail.com',
+	         send_mail('vvavsik@gmail.com',
 			             $email,
 						'Новый пароль для сайта ProductsForYou.adr.com.ua',
 						'Ваш пароль: '.$newpass);   

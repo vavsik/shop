@@ -1,6 +1,5 @@
 <div id="header-top">
  <div id="header-top-up">
- <!--<img id="img-logo" src="images/logo.png"/>-->
 <ul id="header-top-menu">
     <li><a href="about.php">О нас</a></li>
     <li><a href="help.php">Помощь</a></li>
@@ -65,7 +64,17 @@ if ($_SESSION['auth'] == 'yes_auth')
 <p class="buttond"  style="text-align:center;"><a href="#" target="_self" style="cursor: pointer; text-decoration: none; padding:12px 36px; color:#ffffff; background-color:#F70202; border-radius:46px; border: 0px solid #1a1ad9;">+38(096)000-70-01</a></p>
 </div>
 </div>
+<a class="icon" href="http://online-letters.ru/" target="_blank">
+<img src="http://x-lines.ru/letters/i/cyrillicscript/0138/5484ed/60/0/4nkpb8souuemtwf4.png" border="0" /></a>
 
+<div id="block-user" >
+<div class="corner2"></div>
+<ul>
+<li><img src="images/user_info.png" /><a href="profile.php">Профиль</a></li>
+<li><img src="images/logout.png" /><a id="logout" >Выход</a></li>
+</ul>
+
+</div>
 <div id="block-header">
 
 <div id="personal-info">
@@ -81,10 +90,14 @@ if ($_SESSION['auth'] == 'yes_auth')
 
 <form method="get" action="search.php?q=">
     <div id="block-search">
-<input type="text" id="input-search" name="q" placeholder="Что-то ищете?" />
+<input type="text" id="input-search" name="q" placeholder="Что-то ищете?" value="<?php echo $search; ?>"/>
         <input type="submit" id="button-search" value="Поиск" />
     </div>
 </form>
+<ul id="result-search">
+
+
+</ul>
 
 <div id="top-menu">
 <ul>

@@ -56,7 +56,7 @@ switch ($sorting)
 	<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="js/jcarousellite_1.0.1.js"></script>
     <script type="text/javascript" src="trackbar/jquery.trackbar.js"></script>
-    
+    <script type="text/javascript" src="js/TextChange.js"></script>
     
 </head>
 <body>

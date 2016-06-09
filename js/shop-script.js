@@ -261,6 +261,65 @@ $('#button-remind').click(function(){
 }); 
   }
   }); 
+$('#auth-user-info').toggle(
+       function() {
+           $("#block-user").fadeIn(100);
+       },
+       function() {
+           $("#block-user").fadeOut(100);
+       }
+    );
+	$('#logout').click(function(){
+    
+    $.ajax({
+  type: "POST",
+  url: "include/logout.php",
+  dataType: "html",
+  cache: false,
+  success: function(data) {
+
+  if (data == 'logout')
+  {
+      location.reload();
+  }
+  
+}
+}); 
+});
+
+$('#input-search').bind('textchange', function () {
+                 
+ var input_search = $("#input-search").val();
+
+if (input_search.length >= 3 && input_search.length < 64 )
+{
+ $.ajax({
+  type: "POST",
+  url: "include/search.php",
+  data: "text="+input_search,
+  dataType: "html",
+  cache: false,
+  success: function(data) {
+
+ if (data > '')
+ {
+     $("#result-search").show().html(data); 
+ }else{
+    
+    $("#result-search").hide();
+ }
+
+      }
+}); 
+
+}else
+{
+  $("#result-search").hide();    
+}
+
+});
+
+
 
 
 });
